@@ -1,3 +1,34 @@
+/*
+* 使用
+* mounted() {
+  // 获取页面宽高
+  const { width, height } = this.$getScreen();
+  console.log(width, height);
+
+  // 获取元素样式
+  const width = this.$getStyleAttr(this.$refs.input, 'width');
+  console.log(width);
+
+  // 获取滚动值
+  window.onscroll = () => {
+    const { x, y } = this.$getPageScroll();
+    console.log(x, y);
+  };
+
+  // 根据输入值查询 函数节流
+  this.$refs.input.oninput = this.$debounce((event) => {
+    console.log('发送请求');
+    console.log(this.inputValue);
+  }, 1000);
+
+  // 监听尺寸变化 调用函数防抖
+  window.onresize = this.$throttle(() => {
+    console.log(3);
+    this.charts.monitorChart.resize();
+    this.charts.onlineChart.resize();
+  }, 1000);
+},
+* */
 export default {
   // 注意点: 如果要将一个组件封装成一个插件, 那么必须提供一个install方法
   //         那么必须在install方法中注册当前的这个组件
