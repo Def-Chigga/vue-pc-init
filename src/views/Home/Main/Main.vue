@@ -1,10 +1,10 @@
 <template>
     <div class="home-main">
       home-main
-      <div class="monitor" style="width: 500px;height: 300px; background: #333;">
+      <div class="monitor">
         <div id="monitor" style="width: 100%;height: 100%;"></div>
       </div>
-      <div class="online" style="width: 500px;height: 300px; background: #333;">
+      <div class="online">
         <div id="online" style="width: 100%;height: 100%;"></div>
       </div>
     </div>
@@ -317,4 +317,12 @@ export default {
 
 <style scoped lang="scss">
   @import "../../../assets/css/mixin";
+  .home-main{
+    font-size: 36px;
+    .monitor,.online{
+      width: 500px;
+      height: 300px;
+      background: #333;
+    }
+  }
 </style>
