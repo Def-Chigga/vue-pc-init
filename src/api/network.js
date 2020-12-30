@@ -1,4 +1,5 @@
 // 导入axios
+import that from './../main';
 import axios from 'axios';
 
 // 进行一些全局配置
@@ -13,17 +14,17 @@ axios.interceptors.request.use(function(config) {
   // 在发送请求之前做些什么
   count++;
   // 调用网络加载指示器loading插件显示
-  this.$loading({
+  that.$loading({
     lock: true,
     text: '正在加载中...',
     // spinner: 'el-icon-loading',
     background: 'rgba(0, 0, 0, 0.7)'
   });
   return config;
-}, function(error) {
+}, (error) => {
   // 对请求错误做些什么
-  this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
-    this.$loading().close();
+  that.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+    that.$loading().close();
   });
   return Promise.reject(error);
 });
@@ -34,15 +35,15 @@ axios.interceptors.response.use(function(response) {
   count--;
   if (count === 0) {
     // 调用网络加载指示器loading插件隐藏
-    this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
-      this.$loading().close();
+    that.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+      that.$loading().close();
     });
   }
   return response;
-}, function(error) {
+}, (error) => {
   // 对响应错误做点什么
-  this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
-    this.$loading().close();
+  that.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+    that.$loading().close();
   });
   return Promise.reject(error);
 });
