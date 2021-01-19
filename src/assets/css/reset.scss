@@ -38,29 +38,23 @@ html,body{
   border-radius:2em;
 }
 /*媒体查询*/
-/* 小屏电脑分辨率 */
-@media (min-width: 500px){
-  html{font-size: 9px;}
-}
-/* 小屏电脑分辨率 */
+/* 小屏 sm*/
 @media (min-width: 768px){
   html{font-size: 14px;}
 }
-@media (min-width: 900px){
-  html{font-size: 17px;}
-}
-@media (min-width: 1100px){
+/* 中等屏幕 md*/
+@media (min-width: 992px){
   html{font-size: 21px;}
 }
-/* 中等屏幕 */
-@media (min-width: 1350px) {
+/* 大屏幕 lg*/
+@media (min-width: 1200px) {
   html{font-size: 25px;}
 }
 /* 大屏幕 */
 @media (min-width: 1600px) {
   html{font-size: 30px;}
 }
-/* 超大屏幕 */
+/* 超大屏幕 xl*/
 @media (min-width: 1920px) {
   html{font-size: 36px;}
 }
