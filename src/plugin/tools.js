@@ -27,6 +27,12 @@
     this.charts.monitorChart.resize();
     this.charts.onlineChart.resize();
   }, 1000);
+
+  // 子孙组件内查找父组件并调用父组件方法并传参（代替子组件$emit）
+  // 拿到父组件
+  const parent = this.$searchParentCpt('adminHome') // 父组件名 adminHome
+  // 调用父组件方法并传参
+  parent.addTab(obj)
 },
 * */
 export default {
@@ -108,6 +114,27 @@ export default {
           fn.apply(self, args);
         }, delay || 1000);
       };
+    };
+
+    /**
+     * 子孙组件向上查找父组件
+     * @param name {String} 组件名称，eg:nld
+     * @returns {null|*} 查找到的路由或者null
+     */
+    Vue.prototype.$searchParentCpt = function(name) {
+      let parent = this.$parent;
+      if (this.$options.name === name) {
+        return this;
+      } else if (parent.$options.name === name) {
+        return parent;
+      } else if (parent) {
+        parent = parent.$nldUp(name);
+        if (parent) {
+          return parent;
+        }
+      } else {
+        return null;
+      }
     };
   }
 };
