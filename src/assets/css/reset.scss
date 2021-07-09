@@ -14,47 +14,59 @@ input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;
 legend{color:#000}
 a{text-decoration: none}
 #yui3-css-stamp.cssreset{display:none}
-/*全局字体修改*/
-html,body,#app{
-  font-family: Source Han Sans CN;
+
+
+/*设置全局样式*/
+html,body{
+  font-family: "微软雅黑";
+  font-size: 12px;
+  color: #999;
+  background-color: #f5f5f5;
 }
 
-/*滚动条样式修改*/
-.scroller::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* 小屏电脑分辨率 */
+@media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
 }
 
-.scroller::-webkit-scrollbar-track {
-  background-color:transparent;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius:2em;
+/* 小屏电脑分辨率 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  html {
+    font-size: 14px;
+  }
 }
-.scroller::-webkit-scrollbar-thumb {
-  background-color:rgba(0,0,0,0.5);
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius:2em;
-}
-/*媒体查询*/
-/* 小屏 sm*/
-@media (min-width: 768px){
-  html{font-size: 14px;}
-}
-/* 中等屏幕 md*/
-@media (min-width: 992px){
-  html{font-size: 21px;}
-}
-/* 大屏幕 lg*/
+
 @media (min-width: 1200px) {
-  html{font-size: 25px;}
+  html {
+    font-size: 16px;
+  }
 }
+
+/* 中等屏幕 */
+@media (min-width: 1201px) and (max-width: 1599px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 /* 大屏幕 */
 @media (min-width: 1600px) {
-  html{font-size: 30px;}
+  html {
+    font-size: 20px;
+  }
 }
-/* 超大屏幕 xl*/
+
+@media (min-width: 1601px) and (max-width: 1919px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+/* 超大屏幕 */
 @media (min-width: 1920px) {
-  html{font-size: 36px;}
+  html {
+    font-size: 24px;
+  }
 }
